@@ -1,0 +1,504 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> statement
+Rule 1     statement -> VARIABLE IGUAL expression
+Rule 2     statement -> expression
+Rule 3     expression -> expression SUMA expression
+Rule 4     expression -> expression RESTA expression
+Rule 5     expression -> expression MULTIPLICACION expression
+Rule 6     expression -> expression DIVISION expression
+Rule 7     expression -> RESTA expression
+Rule 8     expression -> LPARENTESIS expression RPARENTESIS
+Rule 9     expression -> LCORCHETE expression RCORCHETE
+Rule 10    expression -> ENTERO
+Rule 11    expression -> FLOAT
+Rule 12    expression -> VARIABLE
+
+Terminals, with rules where they appear
+
+DIVISION             : 6
+ENTERO               : 10
+FLOAT                : 11
+IGUAL                : 1
+LCORCHETE            : 9
+LPARENTESIS          : 8
+MULTIPLICACION       : 5
+RCORCHETE            : 9
+RESTA                : 4 7
+RPARENTESIS          : 8
+SUMA                 : 3
+VARIABLE             : 1 12
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 1 2 3 3 4 4 5 5 6 6 7 8 9
+statement            : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . statement
+    (1) statement -> . VARIABLE IGUAL expression
+    (2) statement -> . expression
+    (3) expression -> . expression SUMA expression
+    (4) expression -> . expression RESTA expression
+    (5) expression -> . expression MULTIPLICACION expression
+    (6) expression -> . expression DIVISION expression
+    (7) expression -> . RESTA expression
+    (8) expression -> . LPARENTESIS expression RPARENTESIS
+    (9) expression -> . LCORCHETE expression RCORCHETE
+    (10) expression -> . ENTERO
+    (11) expression -> . FLOAT
+    (12) expression -> . VARIABLE
+
+    VARIABLE        shift and go to state 2
+    RESTA           shift and go to state 4
+    LPARENTESIS     shift and go to state 5
+    LCORCHETE       shift and go to state 6
+    ENTERO          shift and go to state 7
+    FLOAT           shift and go to state 8
+
+    statement                      shift and go to state 1
+    expression                     shift and go to state 3
+
+state 1
+
+    (0) S' -> statement .
+
+
+
+state 2
+
+    (1) statement -> VARIABLE . IGUAL expression
+    (12) expression -> VARIABLE .
+
+    IGUAL           shift and go to state 9
+    SUMA            reduce using rule 12 (expression -> VARIABLE .)
+    RESTA           reduce using rule 12 (expression -> VARIABLE .)
+    MULTIPLICACION  reduce using rule 12 (expression -> VARIABLE .)
+    DIVISION        reduce using rule 12 (expression -> VARIABLE .)
+    $end            reduce using rule 12 (expression -> VARIABLE .)
+
+
+state 3
+
+    (2) statement -> expression .
+    (3) expression -> expression . SUMA expression
+    (4) expression -> expression . RESTA expression
+    (5) expression -> expression . MULTIPLICACION expression
+    (6) expression -> expression . DIVISION expression
+
+    $end            reduce using rule 2 (statement -> expression .)
+    SUMA            shift and go to state 10
+    RESTA           shift and go to state 11
+    MULTIPLICACION  shift and go to state 12
+    DIVISION        shift and go to state 13
+
+
+state 4
+
+    (7) expression -> RESTA . expression
+    (3) expression -> . expression SUMA expression
+    (4) expression -> . expression RESTA expression
+    (5) expression -> . expression MULTIPLICACION expression
+    (6) expression -> . expression DIVISION expression
+    (7) expression -> . RESTA expression
+    (8) expression -> . LPARENTESIS expression RPARENTESIS
+    (9) expression -> . LCORCHETE expression RCORCHETE
+    (10) expression -> . ENTERO
+    (11) expression -> . FLOAT
+    (12) expression -> . VARIABLE
+
+    RESTA           shift and go to state 4
+    LPARENTESIS     shift and go to state 5
+    LCORCHETE       shift and go to state 6
+    ENTERO          shift and go to state 7
+    FLOAT           shift and go to state 8
+    VARIABLE        shift and go to state 15
+
+    expression                     shift and go to state 14
+
+state 5
+
+    (8) expression -> LPARENTESIS . expression RPARENTESIS
+    (3) expression -> . expression SUMA expression
+    (4) expression -> . expression RESTA expression
+    (5) expression -> . expression MULTIPLICACION expression
+    (6) expression -> . expression DIVISION expression
+    (7) expression -> . RESTA expression
+    (8) expression -> . LPARENTESIS expression RPARENTESIS
+    (9) expression -> . LCORCHETE expression RCORCHETE
+    (10) expression -> . ENTERO
+    (11) expression -> . FLOAT
+    (12) expression -> . VARIABLE
+
+    RESTA           shift and go to state 4
+    LPARENTESIS     shift and go to state 5
+    LCORCHETE       shift and go to state 6
+    ENTERO          shift and go to state 7
+    FLOAT           shift and go to state 8
+    VARIABLE        shift and go to state 15
+
+    expression                     shift and go to state 16
+
+state 6
+
+    (9) expression -> LCORCHETE . expression RCORCHETE
+    (3) expression -> . expression SUMA expression
+    (4) expression -> . expression RESTA expression
+    (5) expression -> . expression MULTIPLICACION expression
+    (6) expression -> . expression DIVISION expression
+    (7) expression -> . RESTA expression
+    (8) expression -> . LPARENTESIS expression RPARENTESIS
+    (9) expression -> . LCORCHETE expression RCORCHETE
+    (10) expression -> . ENTERO
+    (11) expression -> . FLOAT
+    (12) expression -> . VARIABLE
+
+    RESTA           shift and go to state 4
+    LPARENTESIS     shift and go to state 5
+    LCORCHETE       shift and go to state 6
+    ENTERO          shift and go to state 7
+    FLOAT           shift and go to state 8
+    VARIABLE        shift and go to state 15
+
+    expression                     shift and go to state 17
+
+state 7
+
+    (10) expression -> ENTERO .
+
+    SUMA            reduce using rule 10 (expression -> ENTERO .)
+    RESTA           reduce using rule 10 (expression -> ENTERO .)
+    MULTIPLICACION  reduce using rule 10 (expression -> ENTERO .)
+    DIVISION        reduce using rule 10 (expression -> ENTERO .)
+    $end            reduce using rule 10 (expression -> ENTERO .)
+    RPARENTESIS     reduce using rule 10 (expression -> ENTERO .)
+    RCORCHETE       reduce using rule 10 (expression -> ENTERO .)
+
+
+state 8
+
+    (11) expression -> FLOAT .
+
+    SUMA            reduce using rule 11 (expression -> FLOAT .)
+    RESTA           reduce using rule 11 (expression -> FLOAT .)
+    MULTIPLICACION  reduce using rule 11 (expression -> FLOAT .)
+    DIVISION        reduce using rule 11 (expression -> FLOAT .)
+    $end            reduce using rule 11 (expression -> FLOAT .)
+    RPARENTESIS     reduce using rule 11 (expression -> FLOAT .)
+    RCORCHETE       reduce using rule 11 (expression -> FLOAT .)
+
+
+state 9
+
+    (1) statement -> VARIABLE IGUAL . expression
+    (3) expression -> . expression SUMA expression
+    (4) expression -> . expression RESTA expression
+    (5) expression -> . expression MULTIPLICACION expression
+    (6) expression -> . expression DIVISION expression
+    (7) expression -> . RESTA expression
+    (8) expression -> . LPARENTESIS expression RPARENTESIS
+    (9) expression -> . LCORCHETE expression RCORCHETE
+    (10) expression -> . ENTERO
+    (11) expression -> . FLOAT
+    (12) expression -> . VARIABLE
+
+    RESTA           shift and go to state 4
+    LPARENTESIS     shift and go to state 5
+    LCORCHETE       shift and go to state 6
+    ENTERO          shift and go to state 7
+    FLOAT           shift and go to state 8
+    VARIABLE        shift and go to state 15
+
+    expression                     shift and go to state 18
+
+state 10
+
+    (3) expression -> expression SUMA . expression
+    (3) expression -> . expression SUMA expression
+    (4) expression -> . expression RESTA expression
+    (5) expression -> . expression MULTIPLICACION expression
+    (6) expression -> . expression DIVISION expression
+    (7) expression -> . RESTA expression
+    (8) expression -> . LPARENTESIS expression RPARENTESIS
+    (9) expression -> . LCORCHETE expression RCORCHETE
+    (10) expression -> . ENTERO
+    (11) expression -> . FLOAT
+    (12) expression -> . VARIABLE
+
+    RESTA           shift and go to state 4
+    LPARENTESIS     shift and go to state 5
+    LCORCHETE       shift and go to state 6
+    ENTERO          shift and go to state 7
+    FLOAT           shift and go to state 8
+    VARIABLE        shift and go to state 15
+
+    expression                     shift and go to state 19
+
+state 11
+
+    (4) expression -> expression RESTA . expression
+    (3) expression -> . expression SUMA expression
+    (4) expression -> . expression RESTA expression
+    (5) expression -> . expression MULTIPLICACION expression
+    (6) expression -> . expression DIVISION expression
+    (7) expression -> . RESTA expression
+    (8) expression -> . LPARENTESIS expression RPARENTESIS
+    (9) expression -> . LCORCHETE expression RCORCHETE
+    (10) expression -> . ENTERO
+    (11) expression -> . FLOAT
+    (12) expression -> . VARIABLE
+
+    RESTA           shift and go to state 4
+    LPARENTESIS     shift and go to state 5
+    LCORCHETE       shift and go to state 6
+    ENTERO          shift and go to state 7
+    FLOAT           shift and go to state 8
+    VARIABLE        shift and go to state 15
+
+    expression                     shift and go to state 20
+
+state 12
+
+    (5) expression -> expression MULTIPLICACION . expression
+    (3) expression -> . expression SUMA expression
+    (4) expression -> . expression RESTA expression
+    (5) expression -> . expression MULTIPLICACION expression
+    (6) expression -> . expression DIVISION expression
+    (7) expression -> . RESTA expression
+    (8) expression -> . LPARENTESIS expression RPARENTESIS
+    (9) expression -> . LCORCHETE expression RCORCHETE
+    (10) expression -> . ENTERO
+    (11) expression -> . FLOAT
+    (12) expression -> . VARIABLE
+
+    RESTA           shift and go to state 4
+    LPARENTESIS     shift and go to state 5
+    LCORCHETE       shift and go to state 6
+    ENTERO          shift and go to state 7
+    FLOAT           shift and go to state 8
+    VARIABLE        shift and go to state 15
+
+    expression                     shift and go to state 21
+
+state 13
+
+    (6) expression -> expression DIVISION . expression
+    (3) expression -> . expression SUMA expression
+    (4) expression -> . expression RESTA expression
+    (5) expression -> . expression MULTIPLICACION expression
+    (6) expression -> . expression DIVISION expression
+    (7) expression -> . RESTA expression
+    (8) expression -> . LPARENTESIS expression RPARENTESIS
+    (9) expression -> . LCORCHETE expression RCORCHETE
+    (10) expression -> . ENTERO
+    (11) expression -> . FLOAT
+    (12) expression -> . VARIABLE
+
+    RESTA           shift and go to state 4
+    LPARENTESIS     shift and go to state 5
+    LCORCHETE       shift and go to state 6
+    ENTERO          shift and go to state 7
+    FLOAT           shift and go to state 8
+    VARIABLE        shift and go to state 15
+
+    expression                     shift and go to state 22
+
+state 14
+
+    (7) expression -> RESTA expression .
+    (3) expression -> expression . SUMA expression
+    (4) expression -> expression . RESTA expression
+    (5) expression -> expression . MULTIPLICACION expression
+    (6) expression -> expression . DIVISION expression
+
+    SUMA            reduce using rule 7 (expression -> RESTA expression .)
+    RESTA           reduce using rule 7 (expression -> RESTA expression .)
+    MULTIPLICACION  reduce using rule 7 (expression -> RESTA expression .)
+    DIVISION        reduce using rule 7 (expression -> RESTA expression .)
+    $end            reduce using rule 7 (expression -> RESTA expression .)
+    RPARENTESIS     reduce using rule 7 (expression -> RESTA expression .)
+    RCORCHETE       reduce using rule 7 (expression -> RESTA expression .)
+
+  ! SUMA            [ shift and go to state 10 ]
+  ! RESTA           [ shift and go to state 11 ]
+  ! MULTIPLICACION  [ shift and go to state 12 ]
+  ! DIVISION        [ shift and go to state 13 ]
+
+
+state 15
+
+    (12) expression -> VARIABLE .
+
+    SUMA            reduce using rule 12 (expression -> VARIABLE .)
+    RESTA           reduce using rule 12 (expression -> VARIABLE .)
+    MULTIPLICACION  reduce using rule 12 (expression -> VARIABLE .)
+    DIVISION        reduce using rule 12 (expression -> VARIABLE .)
+    $end            reduce using rule 12 (expression -> VARIABLE .)
+    RPARENTESIS     reduce using rule 12 (expression -> VARIABLE .)
+    RCORCHETE       reduce using rule 12 (expression -> VARIABLE .)
+
+
+state 16
+
+    (8) expression -> LPARENTESIS expression . RPARENTESIS
+    (3) expression -> expression . SUMA expression
+    (4) expression -> expression . RESTA expression
+    (5) expression -> expression . MULTIPLICACION expression
+    (6) expression -> expression . DIVISION expression
+
+    RPARENTESIS     shift and go to state 23
+    SUMA            shift and go to state 10
+    RESTA           shift and go to state 11
+    MULTIPLICACION  shift and go to state 12
+    DIVISION        shift and go to state 13
+
+
+state 17
+
+    (9) expression -> LCORCHETE expression . RCORCHETE
+    (3) expression -> expression . SUMA expression
+    (4) expression -> expression . RESTA expression
+    (5) expression -> expression . MULTIPLICACION expression
+    (6) expression -> expression . DIVISION expression
+
+    RCORCHETE       shift and go to state 24
+    SUMA            shift and go to state 10
+    RESTA           shift and go to state 11
+    MULTIPLICACION  shift and go to state 12
+    DIVISION        shift and go to state 13
+
+
+state 18
+
+    (1) statement -> VARIABLE IGUAL expression .
+    (3) expression -> expression . SUMA expression
+    (4) expression -> expression . RESTA expression
+    (5) expression -> expression . MULTIPLICACION expression
+    (6) expression -> expression . DIVISION expression
+
+    $end            reduce using rule 1 (statement -> VARIABLE IGUAL expression .)
+    SUMA            shift and go to state 10
+    RESTA           shift and go to state 11
+    MULTIPLICACION  shift and go to state 12
+    DIVISION        shift and go to state 13
+
+
+state 19
+
+    (3) expression -> expression SUMA expression .
+    (3) expression -> expression . SUMA expression
+    (4) expression -> expression . RESTA expression
+    (5) expression -> expression . MULTIPLICACION expression
+    (6) expression -> expression . DIVISION expression
+
+    SUMA            reduce using rule 3 (expression -> expression SUMA expression .)
+    RESTA           reduce using rule 3 (expression -> expression SUMA expression .)
+    $end            reduce using rule 3 (expression -> expression SUMA expression .)
+    RPARENTESIS     reduce using rule 3 (expression -> expression SUMA expression .)
+    RCORCHETE       reduce using rule 3 (expression -> expression SUMA expression .)
+    MULTIPLICACION  shift and go to state 12
+    DIVISION        shift and go to state 13
+
+  ! MULTIPLICACION  [ reduce using rule 3 (expression -> expression SUMA expression .) ]
+  ! DIVISION        [ reduce using rule 3 (expression -> expression SUMA expression .) ]
+  ! SUMA            [ shift and go to state 10 ]
+  ! RESTA           [ shift and go to state 11 ]
+
+
+state 20
+
+    (4) expression -> expression RESTA expression .
+    (3) expression -> expression . SUMA expression
+    (4) expression -> expression . RESTA expression
+    (5) expression -> expression . MULTIPLICACION expression
+    (6) expression -> expression . DIVISION expression
+
+    SUMA            reduce using rule 4 (expression -> expression RESTA expression .)
+    RESTA           reduce using rule 4 (expression -> expression RESTA expression .)
+    $end            reduce using rule 4 (expression -> expression RESTA expression .)
+    RPARENTESIS     reduce using rule 4 (expression -> expression RESTA expression .)
+    RCORCHETE       reduce using rule 4 (expression -> expression RESTA expression .)
+    MULTIPLICACION  shift and go to state 12
+    DIVISION        shift and go to state 13
+
+  ! MULTIPLICACION  [ reduce using rule 4 (expression -> expression RESTA expression .) ]
+  ! DIVISION        [ reduce using rule 4 (expression -> expression RESTA expression .) ]
+  ! SUMA            [ shift and go to state 10 ]
+  ! RESTA           [ shift and go to state 11 ]
+
+
+state 21
+
+    (5) expression -> expression MULTIPLICACION expression .
+    (3) expression -> expression . SUMA expression
+    (4) expression -> expression . RESTA expression
+    (5) expression -> expression . MULTIPLICACION expression
+    (6) expression -> expression . DIVISION expression
+
+    SUMA            reduce using rule 5 (expression -> expression MULTIPLICACION expression .)
+    RESTA           reduce using rule 5 (expression -> expression MULTIPLICACION expression .)
+    MULTIPLICACION  reduce using rule 5 (expression -> expression MULTIPLICACION expression .)
+    DIVISION        reduce using rule 5 (expression -> expression MULTIPLICACION expression .)
+    $end            reduce using rule 5 (expression -> expression MULTIPLICACION expression .)
+    RPARENTESIS     reduce using rule 5 (expression -> expression MULTIPLICACION expression .)
+    RCORCHETE       reduce using rule 5 (expression -> expression MULTIPLICACION expression .)
+
+  ! SUMA            [ shift and go to state 10 ]
+  ! RESTA           [ shift and go to state 11 ]
+  ! MULTIPLICACION  [ shift and go to state 12 ]
+  ! DIVISION        [ shift and go to state 13 ]
+
+
+state 22
+
+    (6) expression -> expression DIVISION expression .
+    (3) expression -> expression . SUMA expression
+    (4) expression -> expression . RESTA expression
+    (5) expression -> expression . MULTIPLICACION expression
+    (6) expression -> expression . DIVISION expression
+
+    SUMA            reduce using rule 6 (expression -> expression DIVISION expression .)
+    RESTA           reduce using rule 6 (expression -> expression DIVISION expression .)
+    MULTIPLICACION  reduce using rule 6 (expression -> expression DIVISION expression .)
+    DIVISION        reduce using rule 6 (expression -> expression DIVISION expression .)
+    $end            reduce using rule 6 (expression -> expression DIVISION expression .)
+    RPARENTESIS     reduce using rule 6 (expression -> expression DIVISION expression .)
+    RCORCHETE       reduce using rule 6 (expression -> expression DIVISION expression .)
+
+  ! SUMA            [ shift and go to state 10 ]
+  ! RESTA           [ shift and go to state 11 ]
+  ! MULTIPLICACION  [ shift and go to state 12 ]
+  ! DIVISION        [ shift and go to state 13 ]
+
+
+state 23
+
+    (8) expression -> LPARENTESIS expression RPARENTESIS .
+
+    SUMA            reduce using rule 8 (expression -> LPARENTESIS expression RPARENTESIS .)
+    RESTA           reduce using rule 8 (expression -> LPARENTESIS expression RPARENTESIS .)
+    MULTIPLICACION  reduce using rule 8 (expression -> LPARENTESIS expression RPARENTESIS .)
+    DIVISION        reduce using rule 8 (expression -> LPARENTESIS expression RPARENTESIS .)
+    $end            reduce using rule 8 (expression -> LPARENTESIS expression RPARENTESIS .)
+    RPARENTESIS     reduce using rule 8 (expression -> LPARENTESIS expression RPARENTESIS .)
+    RCORCHETE       reduce using rule 8 (expression -> LPARENTESIS expression RPARENTESIS .)
+
+
+state 24
+
+    (9) expression -> LCORCHETE expression RCORCHETE .
+
+    SUMA            reduce using rule 9 (expression -> LCORCHETE expression RCORCHETE .)
+    RESTA           reduce using rule 9 (expression -> LCORCHETE expression RCORCHETE .)
+    MULTIPLICACION  reduce using rule 9 (expression -> LCORCHETE expression RCORCHETE .)
+    DIVISION        reduce using rule 9 (expression -> LCORCHETE expression RCORCHETE .)
+    $end            reduce using rule 9 (expression -> LCORCHETE expression RCORCHETE .)
+    RPARENTESIS     reduce using rule 9 (expression -> LCORCHETE expression RCORCHETE .)
+    RCORCHETE       reduce using rule 9 (expression -> LCORCHETE expression RCORCHETE .)
+
