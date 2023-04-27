@@ -6,7 +6,7 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'leftSUMARESTAleftMULTIPLICACIONDIVISIONrightURESTADIVISION ENTERO FLOAT IGUAL LCORCHETE LPARENTESIS MULTIPLICACION RCORCHETE RESTA RPARENTESIS SUMA VARIABLEstatement : VARIABLE IGUAL expressionstatement : expressionexpression : expression SUMA expression\n                  | expression RESTA expression\n                  | expression MULTIPLICACION expression\n                  | expression DIVISION expressionexpression : RESTA expression %prec URESTAexpression : LPARENTESIS expression RPARENTESIS\n                  | LCORCHETE expression RCORCHETE\n        expression : ENTERO\n                   expression : FLOATexpression : VARIABLE'
+_lr_signature = 'leftSUMARESTAleftMULTIPLICACIONDIVISIONrightURESTADIVISION ENTERO FLOAT IGUAL LCORCHETE LPARENTESIS MULTIPLICACION RCORCHETE RESTA RPARENTESIS SUMA VARIABLEstatement : VARIABLE IGUAL expressionstatement : expressionexpression : expression SUMA expression\n\n                  | expression RESTA expression\n\n                  | expression MULTIPLICACION expression\n\n                  | expression DIVISION expressionexpression : RESTA expression %prec URESTAexpression : LPARENTESIS expression RPARENTESIS\n\n                  | LCORCHETE expression RCORCHETE\n\n        expression : ENTERO\n                   expression : FLOATexpression : VARIABLE'
     
 _lr_action_items = {'VARIABLE':([0,4,5,6,9,10,11,12,13,],[2,15,15,15,15,15,15,15,15,]),'RESTA':([0,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,],[4,-12,11,4,4,4,-10,-11,4,4,4,4,4,-7,-12,11,11,11,-3,-4,-5,-6,-8,-9,]),'LPARENTESIS':([0,4,5,6,9,10,11,12,13,],[5,5,5,5,5,5,5,5,5,]),'LCORCHETE':([0,4,5,6,9,10,11,12,13,],[6,6,6,6,6,6,6,6,6,]),'ENTERO':([0,4,5,6,9,10,11,12,13,],[7,7,7,7,7,7,7,7,7,]),'FLOAT':([0,4,5,6,9,10,11,12,13,],[8,8,8,8,8,8,8,8,8,]),'$end':([1,2,3,7,8,14,15,18,19,20,21,22,23,24,],[0,-12,-2,-10,-11,-7,-12,-1,-3,-4,-5,-6,-8,-9,]),'IGUAL':([2,],[9,]),'SUMA':([2,3,7,8,14,15,16,17,18,19,20,21,22,23,24,],[-12,10,-10,-11,-7,-12,10,10,10,-3,-4,-5,-6,-8,-9,]),'MULTIPLICACION':([2,3,7,8,14,15,16,17,18,19,20,21,22,23,24,],[-12,12,-10,-11,-7,-12,12,12,12,12,12,-5,-6,-8,-9,]),'DIVISION':([2,3,7,8,14,15,16,17,18,19,20,21,22,23,24,],[-12,13,-10,-11,-7,-12,13,13,13,13,13,-5,-6,-8,-9,]),'RPARENTESIS':([7,8,14,15,16,19,20,21,22,23,24,],[-10,-11,-7,-12,23,-3,-4,-5,-6,-8,-9,]),'RCORCHETE':([7,8,14,15,17,19,20,21,22,23,24,],[-10,-11,-7,-12,24,-3,-4,-5,-6,-8,-9,]),}
 
@@ -27,16 +27,16 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> statement","S'",1,None,None,None),
-  ('statement -> VARIABLE IGUAL expression','statement',3,'p_statement_assign','Calculadora.py',67),
-  ('statement -> expression','statement',1,'p_statement_expr','Calculadora.py',71),
-  ('expression -> expression SUMA expression','expression',3,'p_expression_binop','Calculadora.py',76),
-  ('expression -> expression RESTA expression','expression',3,'p_expression_binop','Calculadora.py',77),
-  ('expression -> expression MULTIPLICACION expression','expression',3,'p_expression_binop','Calculadora.py',78),
-  ('expression -> expression DIVISION expression','expression',3,'p_expression_binop','Calculadora.py',79),
-  ('expression -> RESTA expression','expression',2,'p_expression_uresta','Calculadora.py',87),
-  ('expression -> LPARENTESIS expression RPARENTESIS','expression',3,'p_expression_group','Calculadora.py',92),
-  ('expression -> LCORCHETE expression RCORCHETE','expression',3,'p_expression_group','Calculadora.py',93),
-  ('expression -> ENTERO','expression',1,'p_expression_entero','Calculadora.py',98),
-  ('expression -> FLOAT','expression',1,'p_expression_float','Calculadora.py',103),
-  ('expression -> VARIABLE','expression',1,'p_expression_variable','Calculadora.py',107),
+  ('statement -> VARIABLE IGUAL expression','statement',3,'p_statement_assign','Calculadora2.py',168),
+  ('statement -> expression','statement',1,'p_statement_expr','Calculadora2.py',176),
+  ('expression -> expression SUMA expression','expression',3,'p_expression_binop','Calculadora2.py',185),
+  ('expression -> expression RESTA expression','expression',3,'p_expression_binop','Calculadora2.py',187),
+  ('expression -> expression MULTIPLICACION expression','expression',3,'p_expression_binop','Calculadora2.py',189),
+  ('expression -> expression DIVISION expression','expression',3,'p_expression_binop','Calculadora2.py',191),
+  ('expression -> RESTA expression','expression',2,'p_expression_uresta','Calculadora2.py',206),
+  ('expression -> LPARENTESIS expression RPARENTESIS','expression',3,'p_expression_group','Calculadora2.py',215),
+  ('expression -> LCORCHETE expression RCORCHETE','expression',3,'p_expression_group','Calculadora2.py',217),
+  ('expression -> ENTERO','expression',1,'p_expression_entero','Calculadora2.py',226),
+  ('expression -> FLOAT','expression',1,'p_expression_float','Calculadora2.py',233),
+  ('expression -> VARIABLE','expression',1,'p_expression_variable','Calculadora2.py',240),
 ]
